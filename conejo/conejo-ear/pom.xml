@@ -1,0 +1,56 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.agilex.conejo</groupId>
+    <artifactId>conejo</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>conejo-ear</artifactId>
+  <packaging>ear</packaging>
+  <dependencies>
+  	<dependency>
+  		<groupId>javax.jcr</groupId>
+  		<artifactId>jcr</artifactId>
+  	</dependency>
+  	<dependency>
+  		<groupId>com.agilex.conejo</groupId>
+  		<artifactId>jackrabbit-rar</artifactId>
+  		<version>${project.version}</version>
+  		<type>rar</type>
+  	</dependency>
+  	<dependency>
+  		<groupId>com.agilex.conejo</groupId>
+  		<artifactId>conejo-web</artifactId>
+  		<version>${project.version}</version>
+  		<type>war</type>
+  	</dependency>
+  	<dependency>
+  		<groupId>commons-io</groupId>
+  		<artifactId>commons-io</artifactId>
+  	</dependency>
+  </dependencies>
+  <build>
+        <finalName>${project.artifactId}</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-ear-plugin</artifactId>
+                <version>${version.ear.plugin}</version>
+                <configuration>
+                    <!-- Tell Maven we are using Java EE 7 -->
+                    <version>6</version>
+                    <!-- Use Java EE ear libraries as needed. Java EE ear libraries 
+                        are in easy way to package any libraries needed in the ear, and automatically 
+                        have any modules (EJB-JARs and WARs) use them -->
+                    <defaultLibBundleDir>lib</defaultLibBundleDir>
+                    <skinnyWars>true</skinnyWars>
+                    <modules></modules>
+                    <fileNameMapping>no-version</fileNameMapping>
+                  <artifactTypeMappings>
+                  	<artifactTypeMapping type="test-jar" mapping="jar" />
+                  </artifactTypeMappings>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

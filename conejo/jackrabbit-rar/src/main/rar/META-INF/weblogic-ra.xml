@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE weblogic-connection-factory-dd SYSTEM "http://www.bea.com/servers/wls810/dtd/weblogic810-ra.dtd" >
+
+<!--
+  Sample weblogic-ra.xml
+  -->
+
+<weblogic-connection-factory-dd>
+  <connection-factory-name>contentRepository</connection-factory-name>
+  <jndi-name>jcr/repository</jndi-name>
+
+  <pool-params>
+    <initial-capacity>10</initial-capacity>
+    <max-capacity>50</max-capacity>
+    <capacity-increment>1</capacity-increment>
+    <shrinking-enabled>true</shrinking-enabled>
+    <connection-profiling-enabled>true</connection-profiling-enabled>
+    <shrink-frequency-seconds>5</shrink-frequency-seconds>
+
+    <inactive-connection-timeout-seconds>0</inactive-connection-timeout-seconds>
+    <highest-num-waiters>2147483647</highest-num-waiters>
+    <highest-num-unavailable>0</highest-num-unavailable>
+    <connection-creation-retry-frequency-seconds>1</connection-creation-retry-frequency-seconds>
+
+    <connection-reserve-timeout-seconds>10</connection-reserve-timeout-seconds>
+    <test-frequency-seconds>0</test-frequency-seconds>
+    <match-connections-supported>true</match-connections-supported>
+  </pool-params>
+</weblogic-connection-factory-dd>
