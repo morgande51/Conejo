@@ -14,10 +14,10 @@
   		<scope>provided</scope>
   	</dependency>
   	<dependency>
-  		<groupId>com.oracle.weblogic</groupId>
-  		<artifactId>javax.servlet_2.2.0.0_3-0</artifactId>
+  		<groupId>javax.servlet</groupId>
+  		<artifactId>javax.servlet-api</artifactId>
   		<scope>provided</scope>
-  		<version>${weblogic.version}</version>
+  		<version>3.0.1</version>
   	</dependency>
   	<dependency>
   		<groupId>javax.ws.rs</groupId>
@@ -26,15 +26,9 @@
   		<scope>provided</scope>
   	</dependency>
   	<dependency>
-  		<groupId>com.oracle.weblogic</groupId>
-  		<artifactId>javax.ejb_3.3.0</artifactId>
-  		<version>${weblogic.version}</version>
-  		<scope>provided</scope>
-  	</dependency>
-  	<dependency>
-  		<groupId>com.oracle.weblogic</groupId>
-  		<artifactId>javax.inject-1</artifactId>
-  		<version>${weblogic.version}</version>
+  		<groupId>org.jboss.spec.javax.ejb</groupId>
+  		<artifactId>jboss-ejb-api_3.1_spec</artifactId>
+  		<version>1.0.2.Final</version>
   		<scope>provided</scope>
   	</dependency>
   	<dependency>
