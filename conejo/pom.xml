@@ -18,6 +18,7 @@
   	<module>conejo-ear</module>
   	<module>conejo-web</module>
   	<module>jackrabbit-rar</module>
+  	<module>conejo-util</module>
   </modules>
   <dependencyManagement>
   	<dependencies>
