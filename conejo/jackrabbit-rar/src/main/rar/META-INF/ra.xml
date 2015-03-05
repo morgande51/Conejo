@@ -49,7 +49,7 @@
         <config-property>
           <config-property-name>ConfigFile</config-property-name>
           <config-property-type>java.lang.String</config-property-type>
-	      <config-property-value>repository.xml</config-property-value>
+	      <config-property-value>classpath:repository.xml</config-property-value>
         </config-property>
 
         <connectionfactory-interface>

@@ -28,6 +28,10 @@
   		<groupId>commons-io</groupId>
   		<artifactId>commons-io</artifactId>
   	</dependency>
+  	<dependency>
+  		<groupId>com.agilex.conejo</groupId>
+  		<artifactId>conejo-util</artifactId>
+  	</dependency>
   </dependencies>
   <build>
         <finalName>${project.artifactId}</finalName>
@@ -42,13 +46,19 @@
                     <!-- Use Java EE ear libraries as needed. Java EE ear libraries 
                         are in easy way to package any libraries needed in the ear, and automatically 
                         have any modules (EJB-JARs and WARs) use them -->
-                    <defaultLibBundleDir>lib</defaultLibBundleDir>
+                    <defaultLibBundleDir>APP-INF/lib</defaultLibBundleDir>
                     <skinnyWars>true</skinnyWars>
-                    <modules></modules>
+                    <modules>
+                    	<webModule>
+                    		<groupId>com.agilex.conejo</groupId>
+                    		<artifactId>conejo-web</artifactId>
+                    		<contextRoot>/colljcr</contextRoot>
+                    	</webModule>
+                    </modules>
                     <fileNameMapping>no-version</fileNameMapping>
-                  <artifactTypeMappings>
-                  	<artifactTypeMapping type="test-jar" mapping="jar" />
-                  </artifactTypeMappings>
+                  	<artifactTypeMappings>
+                  		<artifactTypeMapping type="test-jar" mapping="jar" />
+                  	</artifactTypeMappings>
                 </configuration>
             </plugin>
         </plugins>

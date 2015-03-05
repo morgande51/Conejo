@@ -38,6 +38,9 @@ public class Warehouse {
 			repository = (Repository)ctx.lookup(REPO_JNDI_NAME);
 			System.out.println("We got a repository on JNDI tree!");
 			System.out.println(repository);
+			
+			// perform basic login to force full configuration of Jackrabbit
+			System.out.println("Using Jackrabbit worksapce: " + authenticate().getWorkspace().getName());
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -68,8 +71,7 @@ public class Warehouse {
 			RepositoryException {
 		Session session = null;
 		try {
-			// TODO use oracle backend w/ actual credentials
-			session = repository.login(new SimpleCredentials(USERNAME, PASSWORD));
+			session = authenticate();
 			String[] parts = explode(path);
 			Node node = session.getRootNode();
 			for (int i = 0; i < parts.length; i++) {
@@ -102,7 +104,7 @@ public class Warehouse {
 		byte[] ret = null;
 		Session session = null;
 		try {
-			session = repository.login(new SimpleCredentials(USERNAME, PASSWORD));
+			session = authenticate();
 			Binary b = session.getRootNode().getProperty(path).getBinary();
 			ret = IOUtils.toByteArray(b.getStream());
 			b.dispose();
@@ -112,5 +114,10 @@ public class Warehouse {
 			}
 		}
 		return ret;
+	}
+	
+	// TODO use oracle backend w/ actual credentials
+	private Session authenticate() throws LoginException, RepositoryException {
+		return repository.login(new SimpleCredentials(USERNAME, PASSWORD));
 	}
 }
